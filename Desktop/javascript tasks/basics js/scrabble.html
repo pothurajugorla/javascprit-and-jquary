@@ -1,0 +1,161 @@
+<html>
+    <head>
+        <title>Scrabble</title>
+    </head>
+    <body>
+        <h2>Scrabble</h2>
+        <p>Given a number of words, the program will output a word which has the highest score, based on the following scoring system:</p>
+        <table>
+            <tr>
+                <th>Alphabet/Character</th>
+                <th>Score (points)</th>
+            </tr>
+            <tr>
+                <td>e, a, i, o, n, r, t, l, s, u</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>d, g</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>b, c, m, p</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>f, h, v, w, y</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>k</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>j, x</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>q, z</td>
+                <td>10</td>
+            </tr>
+        </table>
+
+        <p>The max length of a word is 10 letters.</p>
+        <h4>For example</h4>
+        <table>
+            <tr>
+                <th>Input</th>
+                <th>Output</th>
+            </tr>
+            <tr>
+                <td>"This","is","a","cool","Challenge"</td>
+                <td>Challenge</td>
+            </tr>
+            <tr>
+                <td>"These","Mazes","are","hard"</td>
+                <td>Mazes</td>
+            </tr>
+        </table>
+        <h4>Test the program</h4>
+            <div class="formArea">
+                <label for="words">Enter few words: </label>
+                <input id="input" type="text" name="words"></input>
+            </div>
+            <button id="test" type="submit">Submit</button>
+        <h4>Output:</h4>
+        <p id="output"></p>
+    </body>
+</html>
+
+<style>
+    body {
+  font-family: 'Encode Sans Condensed', sans-serif;
+  font-size: 12px;
+}
+h2 {
+  font-family: 'Encode Sans Condensed', san-serif;
+}
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 1px;  
+}
+th, td, tr{
+  text-align: left;
+  vertical-align: center;
+  padding: 3px 10px;
+}
+th {
+  background: grey;
+  color:white;
+}
+tr:nth-child(even) {
+    background: lightgrey;
+}
+
+</style>
+
+<script>
+
+const lib = {
+    e:1, a:1, i:1, o:1, n:1, r:1, t:1, l:1, s:1, u:1,
+    d:2, g:2,
+    b:3, c:3, m:3, p:3,
+    f:4, h:4, v:4, w:4, y:4,
+    k:5,
+    j:8, x:8,
+    q:10, z:10
+}
+
+const calcScore = (text) => {
+    let score = 0;
+    text = text.toLowerCase();
+    for (let ch of text) {
+        score += lib[ch];
+    }
+    return score;
+}
+
+const higScore = (arr) => {
+    let hScore = 0;
+    let result;
+    
+    arr = arr.split(" ");
+    
+    for (let item of arr) {
+        if (calcScore(item) > hScore) {
+            hScore = calcScore(item);
+            result = item;
+        }
+    }
+    return arr[arr.indexOf(result)];
+}
+
+const vInput = (arr) => {
+    let words = arr.split(" ");
+    
+    for (let word of words) {
+        if (word.length > 10) {
+            return false;
+         }
+    }
+    return true;
+}
+
+window.onload = function(){
+    let input = document.getElementById("input");
+    let submit = document.getElementById("test");
+    let output = document.getElementById("output");
+    submit.onclick = function() {
+        if (input.value != "") {
+            if (vInput(input.value)) {
+                output.innerHTML = higScore(input.value)
+            } else {
+                output.innerHTML = "words more than 10 characters";
+            }
+        } else {
+            output.innerHTML = "empty string"
+        }
+    }    
+}
+</script>
