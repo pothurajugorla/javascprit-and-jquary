@@ -1,0 +1,194 @@
+<html>
+<body>
+  
+  
+   
+
+   
+
+   
+   <button onclick="myFunction()">remove </button>
+
+   <p>Click the button to remove tha last country name of an array.</p>
+
+   <p id="myId"></p>
+
+<script>
+    function con(){
+    array1 = ['a', 'b', 'c'];
+    const array2 = ['d', 'e', 'f'];
+    const array3 = array1.concat(array2);
+    console.log(array3);
+
+    document.write(array3);
+    }
+    </script>
+     
+</body>
+</html>
+
+
+<html>
+<h2>Reverse text using JavaScript</h2>
+<script>
+function reverse(form) {
+var text = "";
+var str = form.rev.value;
+for (i = 0; i <= str.length; i++)
+text = str.substring(i, i+1) + text;
+form.rev.value = text;
+}
+</script>
+<form>
+<input type="text" name="rev">
+<input type="button" value="Reverse" onClick="reverse(this.form)">
+</form>
+</html>
+
+
+
+    
+    
+<script>
+    var a = ["India", "Pakisthan", "Bangladesh", "China"];
+    document.getElementById("myId").innerHTML = a;
+
+    function myFunction() {
+        a.pop();
+        document.getElementById("myId").innerHTML = a;
+    }
+</script>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		JavaScript
+	| Split array into chunks.
+	</title>
+</head>
+
+<body style="text-align:center;"
+	id="body">
+	<h1 style="color:green;">
+			
+		</h1>
+	<p id="GFG_UP" style="font-size: 16px;">
+
+	</p>
+	<button onclick="gfg_Run()">
+		chunk
+	</button>
+	<p id="GFG_DOWN" style="color:green;
+							font-size: 20px;
+							font-weight: bold;">
+	</p>
+	<script>
+		//var el_up = document.getElementById("GFG_UP");
+		var el_down = document.getElementById("GFG_DOWN");
+		var i, j, chunk = 4;
+		var array = [1, 2, 3, 4, 5, 6, 7, 8];
+		el_up.innerHTML = array;
+
+		function gfg_Run() {
+			var array1 =
+				array.slice(0, chunk);
+			
+			var array2 =
+				array.slice(chunk, chunk + array.length);
+			
+			el_down.innerHTML = array1 + ' and ' + array2;
+		}
+	</script>
+
+<!DOCTYPE html>
+<html>
+	
+<head>
+	<title>
+		Remove duplicate elements
+		from array
+	</title>
+</head>
+
+<body>
+	
+	
+	<script>
+    function unique()
+    {
+		var array = ["Manish", "Chandan", "Piyush",
+					"Sunil", "Pankaj", "Piyush",
+					"Pankaj", "Tiny", "Chandan",
+					"Manish"];
+					
+		var outputArray = [];
+		
+		
+		var count = 0;
+		
+		
+		var start = false;
+		
+		for (j = 0; j < array.length; j++) {
+			for (k = 0; k < outputArray.length; k++) {
+				if ( array[j] == outputArray[k] ) {
+					start = true;
+				}
+			}
+			count++;
+			if (count == 1 && start == false) {
+				outputArray.push(array[j]);
+			}
+			start = false;
+			count = 0;
+		}
+		document.write(outputArray);
+    }
+	</script>
+</body>
+
+</html>					
+
+
+
+</body>
+
+</html>
+
+<html>
+<head>
+<script type="text/javascript">
+function testDupes() {
+  var numFlds = document.myform.MyField.length;
+  for (var x=0; x<numFlds; x++) {
+    for (var y=x+1; y<numFlds; y++) {
+      if (document.myform.MyField[x].value == document.myform.MyField[y].value) {
+        alert('There was a unique vales');
+        return false;
+      }
+    }
+  }
+  alert('No unique values');
+  return true;
+}
+</script>
+</head>
+<body>
+<form name="myform" method="post" action="myfile.asp" onsubmit="return testDupes();">
+Field 1: <input type="text" id="MyField"><br>
+Field 2: <input type="text" id="MyField"><br>
+
+<br>
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
+
+<form onsubmit="return false" oninput="txtFullName.value = txtFirstName.value + txtLastName.value">
+	array 1 : <input type="text" name="txtFirstName" /> <br><br>
+	array 2 : <input type="text" name="txtLastName" /> <br><br>
+	concate array : <input type="text" name="txtFullName"  > <br><br>
+	</form>
+

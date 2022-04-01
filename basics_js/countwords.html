@@ -1,0 +1,26 @@
+<div>
+    <label for="w3review">Enter Text:</label>
+    <br/>  
+    <textarea onChange="" id="description" name="description" rows="10" cols="70"></textarea> 
+    <div id="countText">Total words: 0</div>
+  </div>
+
+
+  <style>
+      * {
+  font-family: monospace;
+}
+  </style>
+
+  <script>
+const textArea = document.getElementById('description');
+textArea.addEventListener('input', () => {
+    var textLn =  textArea.value;
+    document.getElementById('countText').innerHTML='Total words: '+getWordCount(textLn);
+});
+
+function getWordCount(str) {
+     return str.trim().split(/[\s,]+/).length;
+}
+
+  </script>
